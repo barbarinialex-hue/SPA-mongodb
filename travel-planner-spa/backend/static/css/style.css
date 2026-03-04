@@ -1,0 +1,183 @@
+/* RESET E BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* HEADER & NAV */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav button {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+nav button:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: white;
+}
+
+.logout-btn {
+    background-color: #c0392b !important;
+    border: none;
+}
+
+/* CONTAINER PRINCIPALE */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* LOGIN CARD */
+.login-card {
+    background: white;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* GRIDS & CARDS (Punto C) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.trip-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+    border-left: 5px solid #3498db;
+}
+
+.trip-card:hover {
+    transform: translateY(-5px);
+}
+
+/* STATI (Punto I) */
+.status-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.status-done { background-color: #e74c3c; } /* Rosso per "fatto" */
+.status-todo { background-color: #2ecc71; } /* Verde per "da fare" */
+
+/* DETTAGLIO (Punto D, F, G, H) */
+.detail-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.back-btn {
+    background: #ecf0f1;
+    color: #2c3e50;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+/* FORMS (Punto E) */
+.form-card {
+    background: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    font-weight: bold;
+}
+
+button:hover { background-color: #2980b9; }
+
+/* MAPPA (Punto I) */
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+/* UTILITY */
+.error-msg { color: #e74c3c; margin-top: 10px; font-weight: bold; }
+.view { animation: fadeIn 0.4s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.pdf-btn {
+    background-color: #27ae60;
+    margin-top: 20px;
+}

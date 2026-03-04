@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner SPA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+    <header id="app-header" style="display:none;">
+        <div class="header-content">
+            <h1>🌍 iMieiViaggi</h1>
+            <nav>
+                <button onclick="showView('list-view')">I Miei Viaggi</button>
+                <button onclick="showView('map-view')">Mappa</button>
+                <button onclick="showView('add-view')">➕ Nuovo Viaggio</button>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app">
+
+        <section id="login-view" class="view">
+            <div class="login-card">
+                <h2>Benvenuto</h2>
+                <p>Accedi per organizzare i tuoi viaggi</p>
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password">
+                </div>
+                <button onclick="handleLogin()">Accedi</button>
+                <p id="login-error" class="error-msg"></p>
+            </div>
+        </section>
+
+        <section id="list-view" class="view" style="display:none;">
+            <div class="section-header">
+                <h2>I tuoi Viaggi</h2>
+            </div>
+            <div id="trips-container" class="grid-container">
+                </div>
+        </section>
+
+        <section id="detail-view" class="view" style="display:none;">
+            <div class="detail-container">
+                <button onclick="showView('list-view')" class="back-btn">⬅ Torna alla lista</button>
+                <div id="trip-content">
+                    </div>
+                <div class="actions">
+                    <button onclick="addParticipant(currentTripId)" class="action-btn">👥 Aggiungi Partecipante</button>
+                    <button onclick="addActivity(currentTripId)" class="action-btn">📅 Aggiungi Attività</button>
+                    <button onclick="addExpense(currentTripId)" class="action-btn">💰 Aggiungi Spesa</button>
+                    <button onclick="downloadTrip(currentTripId, currentTripTitle)" class="download-btn">📄 Scarica Info</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="add-view" class="view" style="display:none;">
+            <div class="form-card">
+                <h2>Inserisci Nuovo Viaggio</h2>
+                <div class="form-group">
+                    <label>Titolo</label>
+                    <input type="text" id="trip-title" placeholder="Es: Weekend a Parigi">
+                </div>
+                <div class="form-group">
+                    <label>Destinazione</label>
+                    <input type="text" id="trip-destination" placeholder="Es: Parigi">
+                </div>
+                <div class="form-group">
+                    <label>Latitudine (opzionale)</label>
+                    <input type="number" id="trip-lat" placeholder="Es: 48.8566" step="0.0001">
+                </div>
+                <div class="form-group">
+                    <label>Longitudine (opzionale)</label>
+                    <input type="number" id="trip-lng" placeholder="Es: 2.3522" step="0.0001">
+                </div>
+                <div class="form-group">
+                    <label>Note</label>
+                    <textarea id="trip-notes" placeholder="Note sul viaggio..."></textarea>
+                </div>
+                <button onclick="handleAddTrip()">Salva Viaggio</button>
+            </div>
+        </section>
+
+        <section id="map-view" class="view" style="display:none;">
+            <h2>Mappa dei Viaggi</h2>
+            <div id="map"></div>
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
